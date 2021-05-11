@@ -43,6 +43,8 @@ module.exports = function (content) {
         .filter(Boolean)
         .join(pathSep)
         .replace(new RegExp(escapeRegExp(pathSep) + '+', 'g'), pathSep);
+
+    filePath = filePath.replace(/(https?):\/(?!\/)/, "$1://");
     
     // Replace the default export with an assigment to the _module_exports variable.
     var exportRe = /module\.exports\s*=|export default\s+/g;
